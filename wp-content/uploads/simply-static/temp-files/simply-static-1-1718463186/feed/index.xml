@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>webdemo</title>
+	<atom:link href="https://huu2k2.github.io/tess/feed/" rel="self" type="application/rss+xml" />
+	<link>https://huu2k2.github.io/tess</link>
+	<description></description>
+	<lastBuildDate>Sat, 15 Jun 2024 14:47:18 +0000</lastBuildDate>
+	<language>vi</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.5.4</generator>
+	<item>
+		<title>Chào tất cả mọi người!</title>
+		<link>https://huu2k2.github.io/tess/2024/06/15/chao-moi-nguoi/</link>
+					<comments>https://huu2k2.github.io/tess/2024/06/15/chao-moi-nguoi/#comments</comments>
+		
+		<dc:creator><![CDATA[nguyen thanh huu]]></dc:creator>
+		<pubDate>Sat, 15 Jun 2024 14:47:18 +0000</pubDate>
+				<category><![CDATA[Chưa phân loại]]></category>
+		<guid isPermaLink="false">https://huu2k2.github.io/tess/?p=1</guid>
+
+					<description><![CDATA[Cảm ơn vì đã sử dụng WordPress. Đây là bài viết đầu tiên của bạn. Sửa hoặc xóa nó, và bắt đầu bài viết của bạn nhé!]]></description>
+										<content:encoded><![CDATA[
+<p>Cảm ơn vì đã sử dụng WordPress. Đây là bài viết đầu tiên của bạn. Sửa hoặc xóa nó, và bắt đầu bài viết của bạn nhé!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://huu2k2.github.io/tess/2024/06/15/chao-moi-nguoi/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -15,11 +15,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run WordPress setup script
-        run: |
-          cd ${WP_CORE_DIR}
-          php wp-admin/install.php --setup-config=wp-config.php --skip-email
-
   deploy:
     needs: [ build ]
     runs-on: ubuntu-latest

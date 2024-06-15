@@ -1,0 +1,68 @@
+name: Deploy WordPress to GitHub Pages
+
+on:
+  push:
+    branches: [ gh-pages ]
+
+env:
+  WP_VERSION: "latest"
+  WP_CORE_DIR: "/var/www/html"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Download WordPress
+        run: |
+          curl -L https://raw.githubusercontent.com/WordPress/WordPress/${{ env.WP_VERSION }}/archive/zip/wordpress-${{ env.WP_VERSION }}.zip -o wordpress.zip
+
+      - name: Extract WordPress
+        run: unzip wordpress.zip
+
+      - name: Move WordPress files
+        run: |
+          mv wordpress/* ${WP_CORE_DIR}
+
+      - name: Install WordPress dependencies
+        run: |
+          cd ${WP_CORE_DIR}
+          composer install
+
+      - name: Setup wp-config.php
+        run: |
+          cp ${WP_CORE_DIR}/wp-config-sample.php ${WP_CORE_DIR}/wp-config.php
+
+      - name: Create database
+        run: |
+          echo "CREATE DATABASE wordpress;" | mysql -u root -p${{ secrets.DB_PASSWORD }}
+
+      - name: Run WordPress setup script
+        run: |
+          cd ${WP_CORE_DIR}
+          php wp-admin/install.php --setup-config=wp-config.php --skip-email
+
+  deploy:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-github-pages@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          dir: ${WP_CORE_DIR}
+          skip-db: true

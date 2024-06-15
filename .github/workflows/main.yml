@@ -15,17 +15,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-  deploy:
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+  # deploy:
+  #   needs: [ build ]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
 
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-github-pages@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          dir: ${WP_CORE_DIR}
-          skip-db: true
+  #     - name: Deploy to GitHub Pages
+  #       uses: actions/deploy-github-pages@v3
+  #       with:
+  #         github-token: ${{ secrets.GITHUB_TOKEN }}
+  #         branch: gh-pages
+  #         dir: ${WP_CORE_DIR}
+  #         skip-db: true
